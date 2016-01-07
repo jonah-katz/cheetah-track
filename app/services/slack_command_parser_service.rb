@@ -90,9 +90,11 @@ class SlackCommandParser
   end
 
   def getProjectById pid
-  	logger.info "LOOKING"
+  	puts "LOOKING"
 	toggle_request.my_projects.each do |p|
+		puts "HMM " << p['id'].to_s << " AND " << pid.to_s
 		if p['id'] == pid
+			puts "RETURNING"
 			return p
 		end
 	end
