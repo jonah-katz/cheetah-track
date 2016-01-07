@@ -6,5 +6,6 @@ Rails.application.routes.draw do
 
 
   # slack
-  post 'slackinterface', to: 'slackinterface#index'
+  post 'slackinterface', to: 'slack_interface#index'
+  get 'slackinterface', to: 'slack_interface#index'
 end
