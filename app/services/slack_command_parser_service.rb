@@ -43,7 +43,7 @@ class SlackCommandParser
   	projects = toggle_request.my_projects.inspect
   	response = ''
   	projects.each do |p|
-  		response.push p.id << " - " << p.name << "\n"
+  		response.push p['name'] << " - "<< p['id'] << "\n"
   	end
   	response
   end
@@ -57,7 +57,7 @@ class SlackCommandParser
 
   	return_t = humanize Time.new.to_i + te['duration']
   	project = false
-  	if te.pid
+  	if te['pid']
   		project = getProjectById(te['pid'])
   		return_t << ' - ' << project['name']
   	end
@@ -89,7 +89,7 @@ class SlackCommandParser
 
   def getProjectById
 	toggle_request.my_projects.each do |p|
-		if p['id'] == te.pid
+		if p['id'] == te['pid']
 			return p
 		end
 	end
