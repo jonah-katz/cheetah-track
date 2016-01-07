@@ -1,4 +1,4 @@
-class SlackCommandParserService
+class SlackCommandParser
 	attr_accessor :slack_user_id,:text, :toggl_account
   def command(params)
   	@text = params[:text]
