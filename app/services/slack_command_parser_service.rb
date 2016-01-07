@@ -20,6 +20,8 @@ class SlackCommandParser
   		status
   	when 'start'
   		start
+  	when 'stop'
+  		stop
   	else
   		"I don't know that command. :("
   	end
@@ -54,18 +56,22 @@ class SlackCommandParser
   		return "Timer isn't currently active."
   	end
 
-  	return_t = humanize Time.new.to_i + te['duration']
+
+  	return getStatusText(te);
+
+  end
+
+  def getStatusText(time_entry) 
+  	return_t = humanize Time.new.to_i + time_entry['duration']
   	project = false
-  	if te['pid']
-  		project = getProjectById(te['pid'])
+  	if time_entry['pid']
+  		project = getProjectById(time_entry['pid'])
   		return_t << ' - ' << project['name']
   	end
-  	if te['description']
-  		return_t << ' - ' << te['description']
+  	if time_entry['description']
+  		return_t << ' - ' << time_entry['description']
   	end
-
-  	return return_t;
-
+  	return return_t
   end
 
   # /slackl start <project id> <optional description>
@@ -85,8 +91,16 @@ class SlackCommandParser
   	end
 
   	return "Something went wrong :/ Try again?"
-  	
+  end
 
+  def stop 
+  	te = toggle_request.get_current_time_entry
+  	if !te
+  		return "Timer isn't currently active."
+  	end
+
+  	stop = toggle_request.stop_time_entry(te["id"])
+  	"Timer stopped - " << getStatusText(stop)
   end
 
   def getProjectById pid
