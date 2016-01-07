@@ -1,7 +1,7 @@
 class SlackInterfaceController < ApplicationController
 
 	def index
-		render json:{"text" => SlackCommandParse.new.command(params)}
+		render json:{"text" => SlackCommandParser.new.command(params)}
 	end
 
 	def authorize_slack 
