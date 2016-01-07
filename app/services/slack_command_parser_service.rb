@@ -71,8 +71,11 @@ class SlackCommandParser
   # /slackl start <project id> <optional description>
   def start
   	project_id = @text.split[1]
+  	if !project_id
+  		return "Sorry! I need a project id. ('/slackl start <project id> <optional description>')\n You can find one by using: '/slackl projects'"
+  	end
   	project = getProjectById(project_id)
-  	if !project
+  	if project == false
   		return "Couldn't find a project with an id `" << project_id << "`" 
   	end
 
@@ -87,6 +90,7 @@ class SlackCommandParser
   end
 
   def getProjectById pid
+  	logger.info "LOOKING"
 	toggle_request.my_projects.each do |p|
 		if p['id'] == pid
 			return p
