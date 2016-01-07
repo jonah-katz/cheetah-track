@@ -1,5 +1,7 @@
 <% @toggls.each do |t| %>
 	<div class="row">
+		id: <%= t.id %>
+		user_id: <%= t.user_id %>
 		toggl token: <%= t.api_token %>
 		slack user id: <%= t.slack_user_id %>
 		<%= link_to "delete", "toggl_accounts/#{t.id}", :method => 'delete' %>

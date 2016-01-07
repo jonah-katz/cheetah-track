@@ -7,6 +7,9 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+gem 'togglv8'
+gem 'awesome_print'
+
 group :development, :test do
   gem 'byebug'
 end
