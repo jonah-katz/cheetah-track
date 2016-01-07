@@ -29,7 +29,9 @@ class SlackCommandParser
 
 	token = @text.partition(" ")[2]
 
-	account = TogglAccount.find_or_create_by(slack_user_id: @slack_user_id, api_token: token)
+	account = TogglAccount.find_or_create_by(slack_user_id: @slack_user_id)
+	account.api_token = token
+	account.save
 	"Done! The Toggl api token #{account.api_token} is now associated with your Slack account. You can change this at any time by using the same 'setup' command. \n\nTry typing `/slackl projects`"
   end
 
