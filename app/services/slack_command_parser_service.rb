@@ -79,7 +79,7 @@ class SlackCommandParser
   		return "Couldn't find a project with an id `" << project_id << "`" 
   	end
 
-  	description = @text.split[1..-2].join(' ')
+  	description = @text.split[2..-1].join(' ')
   	if toggle_request.start_time_entry({'pid' => project_id, 'description' => description})
   		return "Timers going!"
   	end
@@ -91,9 +91,7 @@ class SlackCommandParser
 
   def getProjectById pid
 	toggle_request.my_projects.each do |p|
-		puts "HMM " << p['id'].to_s << " AND " << pid.to_s
 		if p['id'].to_s == pid.to_s
-			puts "RETURNING"
 			return p
 		end
 	end
