@@ -61,7 +61,7 @@ class SlackCommandParser
   		project = getProjectById(te['pid'])
   		return_t << ' - ' << project['name']
   	end
-  	if te.description
+  	if te['description']
   		return_t << ' - ' << te['description']
   	end
 
