@@ -41,7 +41,7 @@ class SlackCommandParser
 
 
   def toggle_request
-  	TogglV8::API.new(@toggle_account.api_token)
+  	TogglV8::API.new(@toggl_account.api_token)
   end
 
   def get_toggle_account
