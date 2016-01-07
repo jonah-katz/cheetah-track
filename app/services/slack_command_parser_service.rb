@@ -83,7 +83,7 @@ class SlackCommandParser
   def start
   	project_id = @text.split[1]
   	if !project_id
-  		return "Sorry! I need a project id. ('/slackl start <project id> <optional description>')\n You can find one by using: '/slackl projects'"
+  		return "Sorry! I need a project id. (`/slackl start <project id> <optional description>`)\n You can find one by using: `/slackl projects`"
   	end
   	project = getProjectById(project_id)
   	if project == false
