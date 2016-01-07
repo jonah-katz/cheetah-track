@@ -40,7 +40,7 @@ class SlackCommandParser
   end
 
   def projects
-  	projects = toggle_request.my_projects.inspect
+  	projects = toggle_request.my_projects
   	response = ''
   	projects.each do |p|
   		response.push p['name'] << " - "<< p['id'] << "\n"
