@@ -3,12 +3,14 @@ class SlackCommandParserService
   def command(params)
   	@text = params[:text]
   	@slack_user_id = params[:user_id]
-  	@toggl_account = get_toggle_account
   	parse
   end
 
   def parse
   	command = @text.partition(" ").first
+  	if command != 'setup'
+  		get_toggle_account
+  	end
   	case command
   	when 'setup'
   		parse_setup_command
@@ -43,9 +45,9 @@ class SlackCommandParserService
   def get_toggle_account
   	ta = TogglAccount.where(slack_user_id: @slack_user_id)
   	if ta.length == 0
-  		return false
+  		return "Run `slackl setup <TOGGL API TOKEN>` before proceeding."
   	else
-  		return ta.first
+  		@toggl_account = ta.first
   	end
   end
 
