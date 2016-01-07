@@ -71,9 +71,9 @@ class SlackCommandParser
   # /slackl start <project id> <optional description>
   def start
   	project_id = @text.split[1]
-  	project 
-  	if !project_id
-  		return "Couldn't find a project with an id `" << @project_id << "`" 
+  	project = getProjectById(project_id)
+  	if !project
+  		return "Couldn't find a project with an id `" << project_id << "`" 
   	end
 
   	description = @text.split[1..-2].join(' ')
