@@ -7,5 +7,5 @@ Rails.application.routes.draw do
 
   # slack
   post 'slackinterface', to: 'slack_interface#index'
-  post 'slackinterface/oauth', to 'slack_interface#oauth'
+  post 'slackinterface/oauth', to: 'slack_interface#oauth'
 end
