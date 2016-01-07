@@ -62,7 +62,8 @@ class SlackCommandParser
   end
 
   def getStatusText(time_entry) 
-  	return_t = humanize Time.new.to_i + time_entry['duration']
+  	return_t = time_entry['duration'] > 0 ? humanize time_entry['duration'] : humanize Time.new.to_i + time_entry['duration']
+
   	project = false
   	if time_entry['pid']
   		project = getProjectById(time_entry['pid'])
