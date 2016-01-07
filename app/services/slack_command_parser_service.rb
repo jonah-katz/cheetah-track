@@ -1,6 +1,9 @@
 class SlackCommandParser
 	attr_accessor :slack_user_id,:text, :toggl_account,:api_instance
   def command(params)
+  	if !verify_token(params['token'])
+  		return "Unverified client."
+  	end
   	@text = params[:text]
   	@slack_user_id = params[:user_id]
   	parse
@@ -144,4 +147,7 @@ class SlackCommandParser
 	  }.compact.reverse.join(' ')
 	end
 
+	def verify_token token
+		token == ENV['SLASH_COMMAND_TOKEN']
+	end
 end
