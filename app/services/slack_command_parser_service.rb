@@ -23,11 +23,11 @@ class SlackCommandParser
 
   # /slackl setup <TOGGL API TOKEN>
   def parse_setup_command
-	if @text.partition(" ").length != 2
+	if @text.partition(" ").length != 3
 		return "Bad command. Format is: `/slackl setup <TOGGL API TOKEN>`"
 	end
 
-	token = @text.partition(" ")[1]
+	token = @text.partition(" ")[2]
 
 	account = TogglAccount.find_or_create_by(slack_user_id: @slack_user_id, api_token: token)
 	"Done! The Toggl api token #{account.api_token} is now associated with your Slack account. You can change this at any time by using the same 'setup' command. \n\nTry typing `/slackl projects`"
