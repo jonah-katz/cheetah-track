@@ -87,9 +87,9 @@ class SlackCommandParser
 
   end
 
-  def getProjectById
+  def getProjectById pid
 	toggle_request.my_projects.each do |p|
-		if p['id'] == te['pid']
+		if p['id'] == pid
 			return p
 		end
 	end
