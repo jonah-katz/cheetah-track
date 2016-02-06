@@ -1,1 +1,69 @@
-<h3>Welcome to Slackle!</h3>
+<div class="header">
+	<img src="/img/slack.png" class="slack" />
+	<p>+</p>
+	<img src="/img/toggl.png" class="toggl" />
+</div>
+
+<div class="content clearfix">
+	<p class="tagline">The power of <a href="http://toggl.com" target="_blank">Toggl</a> right in Slack.</p>
+	<p class="steps">Easy as the following steps:</p>
+	<div class="steps clearfix">
+		<div class="step">
+			<p class="number">1</p>
+			<p class="">
+				<a href="https://slack.com/oauth/authorize?scope=commands&client_id=<%= ENV['SLACK_CLIENT_ID'] %>">
+					<img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x">
+				</a>
+			</p>
+		</div>
+		<div class="step">
+			<p class="number">2</p>
+			<p class="">
+				Select the channel you wish to use Toggl with.
+			</p>
+		</div>
+		<div class="step">
+			<p class="number">3</p>
+			<p class="">
+				The <b>/Slackl</b> command can now be used anywhere in that channel. Login to Toggl, go to My Profil, scroll down, and copy your API token the clipboard.
+				<br /><br /><img src="/img/toggl-my-profile.png" /><br /><br />
+				<img src="/img/toggl-api-token.png" />
+			</p>
+		</div>
+		<div class="step">
+			<p class="number">4</p>
+			<p class="">
+			Connect your Slack account to your Toggl account by running <br /><b>/slackl setup &lt;api token&gt;</b> from any channel (we recommend using the Slackbot channel).
+			</p>
+		</div>
+		<div class="step">
+			<p class="number">5</p>
+			<p class="">
+			Run <b>/slackl projects</b> to view a list of available projects. You'll need to copy the id of the project you wish to start timing.
+			</p>
+		</div>
+		<div class="step">
+			<p class="number">6</p>
+			<p class="">
+			Run <br />	<b>/slackl start &lt;project id&gt; &lt;optional description&gt;</b> to kick that timer off!
+			</p>
+		</div>
+		<div class="step">
+			<p class="number">7</p>
+			<p class="">
+			Run <b>/slackl status</b>.
+			</p>
+		</div>
+		<div class="step">
+			<p class="number">8</p>
+			<p class="">
+			Run <b>/slackl stop</b>.
+			</p>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	<p><a href="https://github.com/jonah-katz/slackl" target="_blank">Github</a> <span>•</span> made by <a href="http://jonahkatz.me" target="_blank">Jonah Katz</a></p>
+</div>
+
