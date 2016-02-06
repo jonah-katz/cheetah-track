@@ -1,54 +1,12 @@
-<<<<<<< HEAD
 Slackl
 ================
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+Toggl is a time tracking tool that allows teams to easily allow its members to track time accross multiple projects. Check out more on www.Toggl.com .
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
+Slackl allows users to start, stop and view their Toggl timer straight from Slack.
 
-Rails Composer is supported by developers who purchase our RailsApps tutorials.
+Slackl is an unoffocial tool and is in no way associated with Toggl. 
 
-Problems? Issues?
------------
+Big thanks to the Toggl folks for providing an easy to use, well documented and open <a href="https://github.com/toggl/toggl_api_docs" target="blank">api</a>. 
 
-Need help? Ask on Stack Overflow with the tag 'railsapps.'
-
-Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
-
-If the application doesn't work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include the diagnostics.
-
-Ruby on Rails
--------------
-
-This application requires:
-
-- Ruby 2.2.1
-- Rails 4.2.4
-
-Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
-
-Getting Started
----------------
-
-Documentation and Support
--------------------------
-
-Issues
--------------
-
-Similar Projects
-----------------
-
-Contributing
-------------
-
-Credits
--------
-
-License
--------
-=======
-# slackl
->>>>>>> 877f06e5d1d8e12bd88274cd4468a1d29537c0b3
+Also a big thanks to kanet77 for creating a <a href="https://github.com/kanet77/togglv8" target="blank">ruby wrapper</a> for aforementioned api.
