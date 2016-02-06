@@ -20,7 +20,6 @@ group :development do
   gem 'spring'
 end
 gem 'bootstrap-sass', '~> 2.3.2.2'
-gem 'devise'
 gem 'pg'
 gem 'unicorn'
 gem 'unicorn-rails'
