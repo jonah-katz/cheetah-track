@@ -24,6 +24,16 @@ p {
 	margin: 0px;
 }
 
+p.privacy {
+	width: 300px;
+	margin: 0px auto;
+	margin-top: 50px;
+	@include mq('mobile') {
+		width: 90%;
+		margin-left: 5%;
+	}
+}
+
 .header {
 	width: 400px;
 	margin: 0px auto;
