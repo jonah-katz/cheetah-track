@@ -16,20 +16,20 @@
 				</a>
 			</p>
 
-			<% if params.has_key?(:added_to_slack) %>
-				<p class="success">Success! Slackl is now integrated with your domain.</p>
-			<% end %>
 		</div>
 		<div class="step">
 			<p class="number">2</p>
 			<p class="">
 				Select the channel you wish to use Toggl with.
 			</p>
+			<% if params.has_key?(:added_to_slack) %>
+				<p class="success">Success! Slackl is now integrated with your domain.</p>
+			<% end %>
 		</div>
 		<div class="step">
 			<p class="number">3</p>
 			<p class="">
-				The <b>/Slackl</b> command can now be used anywhere in that domain. Login to Toggl, go to My Profil, scroll down, and copy your API token the clipboard.
+				The <b>/Slackl</b> command can now be used anywhere in your domain. Log in to Toggl, go to My Profile, scroll down and copy the API token to your clipboard.
 				<br /><br /><img src="/img/toggl-my-profile.png" /><br /><br />
 				<img src="/img/toggl-api-token.png" />
 			</p>
@@ -37,7 +37,7 @@
 		<div class="step">
 			<p class="number">4</p>
 			<p class="">
-			Connect your Slack account to your Toggl account by running <br /><b>/slackl setup &lt;api token&gt;</b> from any channel (we recommend using the Slackbot channel).
+			Connect your Toggl account to your Slack account by running <br /><b>/slackl setup &lt;api token&gt;</b> from any channel (we recommend using the Slackbot channel).
 			</p>
 		</div>
 		<div class="step">
@@ -49,7 +49,7 @@
 		<div class="step">
 			<p class="number">6</p>
 			<p class="">
-			Run <br />	<b>/slackl start &lt;project id&gt; &lt;optional description&gt;</b> to kick that timer off!
+			Run <br /><b>/slackl start &lt;project id&gt; &lt;optional description&gt;</b> to kick that timer off!
 			</p>
 		</div>
 		<div class="step">
