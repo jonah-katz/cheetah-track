@@ -3,7 +3,7 @@ Slackl
 
 Toggl is a time tracking tool that allows teams to easily allow its members to track time accross multiple projects. Check out more on www.Toggl.com .
 
-Slackl allows users to start, stop and view their Toggl timer straight from Slack. Instructions and demo at www.Slackl.herokuapp.com 
+Slackl allows users to start, stop and view their Toggl timer straight from Slack. Instructions and demo at <a href="http://slackl.herokuapp.com">slackl.herokuapp.com</a>.
 
 Slackl is an unoffocial tool and is in no way associated with Toggl. 
 
