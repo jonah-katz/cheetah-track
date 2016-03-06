@@ -30,18 +30,9 @@ class SlackCommandParser
   	end
   end
 
-  # /slackl setup <TOGGL API TOKEN>
+  # /cheetah setup
   def parse_setup_command
-	if @text.partition(" ").length != 3
-		return "Bad command. Format is: `/slackl setup <TOGGL API TOKEN>`"
-	end
-
-	token = @text.partition(" ")[2]
-
-	account = TogglAccount.find_or_create_by(slack_user_id: @slack_user_id)
-	account.api_token = token
-	account.save
-	"Done! The Toggl api token #{account.api_token} is now associated with your Slack account. You can change this at any time by using the same 'setup' command. \n\nTry typing `/slackl projects`"
+	"Go to http://cheetah-track.herokuapp.com/slackinterface/setup?info=" << @slack_user_id << ' to connect Slack to your Toggl account.'
   end
 
   def projects
@@ -52,7 +43,7 @@ class SlackCommandParser
   	response
   end
 
-  # /slackl status
+  # /cheetah status
   def status
   	te = toggle_request.get_current_time_entry
   	if !te
@@ -82,11 +73,11 @@ class SlackCommandParser
   	return return_t
   end
 
-  # /slackl start <project id> <optional description>
+  # /cheetah start <project id> <optional description>
   def start
   	project_id = @text.split[1]
   	if !project_id
-  		return "Sorry! I need a project id. (`/slackl start <project id> <optional description>`)\n You can find one by using: `/slackl projects`"
+  		return "Sorry! I need a project id. (`/cheetah start <project id> <optional description>`)\n You can find one by using: `/cheetah projects`"
   	end
   	project = getProjectById(project_id)
   	if project == false
@@ -132,7 +123,7 @@ class SlackCommandParser
   def get_toggle_account
   	ta = TogglAccount.where(slack_user_id: @slack_user_id)
   	if ta.length == 0
-  		return "Run `slackl setup <TOGGL API TOKEN>` before proceeding."
+  		return "Run `cheetah setup <TOGGL API TOKEN>` before proceeding."
   	else
   		@toggl_account = ta.first
   	end

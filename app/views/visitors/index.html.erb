@@ -6,7 +6,7 @@
 
 <div class="content clearfix">
 	<p class="tagline">The power of <a href="http://toggl.com" target="_blank">Toggl</a> right in Slack.</p>
-	<p class="steps">Easy as the following steps:</p>
+	<p class="steps">Easy as the following steps <br />(skip to step 3 if Cheetah Track has already been added to your domain):</p>
 	<div class="steps clearfix">
 		<div class="step">
 			<p class="number">1</p>
@@ -29,39 +29,43 @@
 		<div class="step">
 			<p class="number">3</p>
 			<p class="">
-				The <b>/Slackl</b> command can now be used anywhere in your domain. Log in to Toggl, go to My Profile, scroll down and copy the API token to your clipboard.
+				The <b>/cheetah</b> command can now be used anywhere in your domain.
 				<br /><br /><img src="/img/toggl-my-profile.png" /><br /><br />
 				<img src="/img/toggl-api-token.png" />
 			</p>
 		</div>
+		
 		<div class="step">
 			<p class="number">4</p>
 			<p class="">
-			Connect your Toggl account to your Slack account by running <br /><b>/slackl setup &lt;api token&gt;</b> from any channel (we recommend using the Slackbot channel).
+			Connect your Toggl account to your Slack account by running <br /><b>/cheetah setup</b> from any channel (we recommend using the Slackbot channel). A link will appear to set up your Slack profile.
 			</p>
+			<% if params.has_key?(:setup_done) %>
+				<p class="success">Success! Your Slack profile is now connected to your Toggl profile.</p>
+			<% end %>
 		</div>
 		<div class="step">
 			<p class="number">5</p>
 			<p class="">
-			Run <b>/slackl projects</b> to view a list of available projects. You'll need to copy the id of the project you wish to start timing.
+			Run <b>/cheetah projects</b> to view a list of available projects. You'll need to copy the id of the project you wish to start timing.
 			</p>
 		</div>
 		<div class="step">
 			<p class="number">6</p>
 			<p class="">
-			Run <br /><b>/slackl start &lt;project id&gt; &lt;optional description&gt;</b> to kick that timer off!
+			Run <br /><b>/cheetah start &lt;project id&gt; &lt;optional description&gt;</b> to kick that timer off!
 			</p>
 		</div>
 		<div class="step">
 			<p class="number">7</p>
 			<p class="">
-			Run <b>/slackl status</b>.
+			Run <b>/cheetah status</b>.
 			</p>
 		</div>
 		<div class="step">
 			<p class="number">8</p>
 			<p class="">
-			Run <b>/slackl stop</b>.
+			Run <b>/cheetah stop</b>.
 			</p>
 		</div>
 	</div>
@@ -71,6 +75,6 @@
 
 
 <div class="footer">
-	<p><a href="https://github.com/jonah-katz/slackl" target="_blank"><img style="width: 15px;margin-right: 10px;margin-top: -1px;" src="/img/github.png" />Github</a></a> <span>•</span> made by <a href="http://jonahkatz.me" target="_blank">Jonah Katz</a></p>
+	<p><a href="https://github.com/jonah-katz/cheetah-track" target="_blank"><img style="width: 15px;margin-right: 10px;margin-top: -1px;" src="/img/github.png" />Github</a></a> <span>•</span> made by <a href="http://jonahkatz.me" target="_blank">Jonah Katz</a></p>
 </div>
 

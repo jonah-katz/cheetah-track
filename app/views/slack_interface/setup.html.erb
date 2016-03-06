@@ -1,0 +1,18 @@
+<div class="header">
+	<img src="/img/slack.png" class="slack" />
+	<p>+</p>
+	<img src="/img/toggl.png" class="toggl" />
+</div>
+
+
+<div class="content clearfix">
+	<%= form_tag("/slackinterface/setup", method: "post") do %>
+		 <p>Log in to Toggl, go to My Profile, scroll down and copy the API token to your clipboard.</p>
+		 <br />
+		<%= text_field_tag 'toggl_api_token', nil, :placeholder => 'Toggl API token' %>
+		<%= hidden_field_tag 'slack_user_id', @slack_user_id %>
+	  <%= submit_tag "Submit", :class =>'btn info'  %>
+		<br /><br /><img src="/img/toggl-my-profile.png" /><br /><br />
+		<img src="/img/toggl-api-token.png" />
+	<% end %>
+</div>

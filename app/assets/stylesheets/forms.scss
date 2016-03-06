@@ -1,0 +1,16 @@
+form {
+	text-align: center;
+
+	input[type="text"] {
+		clear: both;
+		width: 400px;
+		max-width: 90%;
+		margin-bottom: 0px;
+	}
+
+	input[type="button"] {
+		clear: both;
+		float: left;
+	}
+
+}
