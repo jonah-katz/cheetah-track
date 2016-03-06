@@ -12,7 +12,8 @@ class SlackInterfaceController < ApplicationController
 		url = URI.parse(url)
 		req = Net::HTTP::Get.new(url.to_s)
 		res = Net::HTTP.start(url.host, url.port) {|http|
-			redirect_to '/?added_to_slack=true'
+			puts "HI" << res.inspect
+			#redirect_to '/?added_to_slack=true'
 		}
   	end
 end
