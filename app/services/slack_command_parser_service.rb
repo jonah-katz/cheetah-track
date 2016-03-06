@@ -26,8 +26,19 @@ class SlackCommandParser
   	when 'stop'
   		stop
   	else
-  		"I don't know that command. :("
+  		"I don't know that command. :(. You can try the following commands  \n
+        `/cheetah projects` \n
+        `/cheetah status` \n
+        `/cheetah start <project id> <optional description>` \n
+        `/cheetah stop` \n
+      "
   	end
+  end
+
+  def check_if_good_to_go user_id
+    @slack_user_id = user_id
+    get_toggle_account
+    toggle_request.me
   end
 
   # /cheetah setup
@@ -37,7 +48,7 @@ class SlackCommandParser
 
   def projects
   	response = ''
-	toggle_request.my_projects.each do |p|
+	   toggle_request.my_projects.each do |p|
   		response << p['name'] << " - " << p['id'].to_s << "\n"
   	end
   	response
@@ -123,7 +134,7 @@ class SlackCommandParser
   def get_toggle_account
   	ta = TogglAccount.where(slack_user_id: @slack_user_id)
   	if ta.length == 0
-  		return "Run `cheetah setup <TOGGL API TOKEN>` before proceeding."
+  		return "Run `/cheetah setup before proceeding."
   	else
   		@toggl_account = ta.first
   	end
