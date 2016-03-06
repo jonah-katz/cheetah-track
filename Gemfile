@@ -11,6 +11,8 @@ gem 'togglv8'
 gem 'awesome_print'
 gem 'dotenv-rails', :groups => [:development, :test]
 
+gem 'httparty'
+
 
 group :development, :test do
   gem 'byebug'
