@@ -6,4 +6,15 @@ class VisitorsController < ApplicationController
 	def privacy
 	end
 	
+	def support
+
+	end
+
+	def email_support
+		begin
+			Support.create(email: params[:email], message: params[:message])
+		rescue
+		end
+	end
+	
 end

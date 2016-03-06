@@ -1,0 +1,15 @@
+<div class="header">
+	<img src="/img/slack.png" class="slack" />
+	<p>+</p>
+	<img src="/img/toggl.png" class="toggl" />
+</div>
+
+
+<div class="content clearfix">
+	<%= form_tag("/visitors/email_support", method: "post", class: 'small') do %>
+		 <p>Would love to hear from you.</p><br />
+		<%= text_field_tag 'email', nil, :placeholder => 'email' %> <br /><br />
+		<%= text_area 'message', nil, :placeholder => 'message' %><br />
+	  <%= submit_tag "Submit", :class =>'btn info'  %>
+	<% end %>
+</div>

@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160206023959) do
+ActiveRecord::Schema.define(version: 20160306205017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "supports", force: :cascade do |t|
+    t.string   "message"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "toggl_accounts", force: :cascade do |t|
     t.string   "api_token"

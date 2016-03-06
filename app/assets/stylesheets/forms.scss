@@ -1,6 +1,7 @@
 form {
 	text-align: center;
 
+
 	input[type="text"] {
 		clear: both;
 		width: 400px;
@@ -11,6 +12,15 @@ form {
 	input[type="button"] {
 		clear: both;
 		float: left;
+	}
+
+	&.small {
+		width: 300px;
+		margin: 0px auto;
+		max-width: 90%;
+		input,textarea {
+			width: 100%;
+		}
 	}
 
 }
