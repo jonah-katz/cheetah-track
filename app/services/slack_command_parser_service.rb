@@ -118,7 +118,7 @@ class SlackCommandParser
   		if p['id'].to_s == pid.to_s
   			return p
   		end
-      if p['name'].downcase == pid.downcase
+      if p['name'].downcase == pid.to_s.downcase
         return p
       end
   	end
