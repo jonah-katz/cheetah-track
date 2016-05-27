@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get 'slackinterface/setup', to: 'slack_interface#setup'
   post 'slackinterface/setup', to: 'slack_interface#setup'
   get 'slackinterface/oauth', to: 'slack_interface#oauth'
+
 end

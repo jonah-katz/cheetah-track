@@ -88,11 +88,11 @@ class SlackCommandParser
   def start
   	project_id = @text.split[1]
   	if !project_id
-  		return "Sorry! I need a project id. (`/cheetah start <project id> <optional description>`)\n You can find one by using: `/cheetah projects`"
+  		return "Sorry! I need a project id or name. (`/cheetah start <project id or project name> <optional description>`)\n You can find one by using: `/cheetah projects`"
   	end
   	project = getProjectById(project_id)
   	if project == false
-  		return "Couldn't find a project with an id `" << project_id << "`" 
+  		return "Couldn't find a project with an id or name`" << project_id << "`" 
   	end
 
   	description = @text.split[2..-1].join(' ')
@@ -114,12 +114,15 @@ class SlackCommandParser
   end
 
   def getProjectById pid
-	toggle_request.my_projects.each do |p|
-		if p['id'].to_s == pid.to_s
-			return p
-		end
-	end
-	return false
+  	toggle_request.my_projects.each do |p|
+  		if p['id'].to_s == pid.to_s
+  			return p
+  		end
+      if p['name'].downcase == pid.downcase
+        return p
+      end
+  	end
+  	return false
   end
 
 
