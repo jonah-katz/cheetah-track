@@ -12,6 +12,7 @@ gem 'awesome_print'
 gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'httparty'
+gem 'newrelic_rpm'
 
 
 group :development, :test do
