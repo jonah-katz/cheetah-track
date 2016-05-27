@@ -96,7 +96,7 @@ class SlackCommandParser
   	end
 
   	description = @text.split[2..-1].join(' ')
-  	if toggle_request.start_time_entry({'pid' => project_id, 'description' => description})
+  	if toggle_request.start_time_entry({'pid' => project['id'], 'description' => description})
   		return "Timers going!"
   	end
 
