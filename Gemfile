@@ -14,6 +14,9 @@ gem 'dotenv-rails', :groups => [:development, :test]
 gem 'httparty'
 gem 'newrelic_rpm'
 
+# google analtics
+gem 'staccato'
+
 
 group :development, :test do
   gem 'byebug'

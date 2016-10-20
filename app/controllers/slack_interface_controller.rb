@@ -17,6 +17,8 @@ class SlackInterfaceController < ApplicationController
 			# test
 			begin TogglV8::API.new(account.api_token).me
 				if account.save
+					tracker = Staccato.tracker(ENV['GA_ID'])
+					tracker.event(category: 'signup', action: 'success', label: params[:slack_user_id])
 					redirect_to '/?setup_done=true#step4'
 					return
 				end
