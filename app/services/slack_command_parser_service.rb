@@ -19,7 +19,7 @@ class SlackCommandParser
   	end
 
     tracker = Staccato.tracker(ENV['GA_ID'])
-    tracker.event(category: 'command', action: command, label: @text).track!
+    tracker.event(category: 'command', action: command, label: @text)
 
     case command
     when 'setup'
