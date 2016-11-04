@@ -95,7 +95,7 @@ end
   def start
   	project_id = @text.split[1]
   	if !project_id
-  		return "Sorry! I need a project id or name. (`/cheetah start <project id or project name> <optional description>`)\n You can find one by using: `/cheetah projects`"
+  		return "Sorry! I need a project id or name. (`/cheetah start <project id> <optional description>`)\n You can find one by using: `/cheetah projects`"
   	end
   	project = getProjectById(project_id)
   	if project == false
