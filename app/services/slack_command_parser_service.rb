@@ -101,7 +101,7 @@ end
     end
     project = getProjectById(project_id)
     if project == false
-      return "Couldn't find a project with an id or name`" << project_id.join(" ") << "`" 
+      return "Couldn't find a project with an id or name`" << project_id << "`" 
     end
 
     description = @text.split[2..-1].join(' ')
