@@ -21,23 +21,23 @@ class SlackCommandParser
     tracker = Staccato.tracker(ENV['GA_ID'])
     tracker.event(category: 'command', action: command, label: @text)
 
-    case command
-    when 'setup'
-      parse_setup_command
-    when 'projects'
-      projects
-    when 'status'
-      status
-    when 'start'
-      start
-    when 'stop'
-      stop
-    else
-      "I don't know that command. :(. You can try the following commands  \n
-      `/cheetah projects` \n
-      `/cheetah status` \n
-      `/cheetah start <project id or project name> <optional description>` \n
-      `/cheetah stop` \n
+  	case command
+  	when 'setup'
+  		parse_setup_command
+  	when 'projects'
+  		projects
+  	when 'status'
+  		status
+  	when 'start'
+  		start
+  	when 'stop'
+  		stop
+  	else
+  		"I don't know that command. :(. You can try the following commands  \n
+        `/cheetah projects` \n
+        `/cheetah status` \n
+        `/cheetah start <project id> <optional description>` \n
+        `/cheetah stop` \n
       "
     end
   end
@@ -93,23 +93,21 @@ end
 
   # /cheetah start <project id> <optional description>
   def start
-  	project_id = @text.split
-    project_id.shift # start
-    project_id = project_id.join(" ")
-    if project_id == ''
-      return "Sorry! I need a project id or name. (`/cheetah start <project id or project name> <optional description>`)\n You can find one by using: `/cheetah projects`"
-    end
-    project = getProjectById(project_id)
-    if project == false
-      return "Couldn't find a project with an id or name`" << project_id << "`" 
-    end
+  	project_id = @text.split[1]
+  	if !project_id
+  		return "Sorry! I need a project id or name. (`/cheetah start <project id or project name> <optional description>`)\n You can find one by using: `/cheetah projects`"
+  	end
+  	project = getProjectById(project_id)
+  	if project == false
+  		return "Couldn't find a project with an id or name`" << project_id << "`" 
+  	end
 
-    description = @text.split[2..-1].join(' ')
-    if toggle_request.start_time_entry({'pid' => project['id'], 'description' => description})
-      return "Timers going!"
-    end
+  	description = @text.split[2..-1].join(' ')
+  	if toggle_request.start_time_entry({'pid' => project['id'], 'description' => description})
+  		return "Timers going!"
+  	end
 
-    return "Something went wrong :/ Try again?"
+  	return "Something went wrong :/ Try again?"
   end
 
   def stop 
